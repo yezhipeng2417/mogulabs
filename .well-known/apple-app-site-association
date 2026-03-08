@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["SZR8935WN6.com.tap.voicetyping"],
+        "components": [
+          {
+            "/": "/dictate"
+          }
+        ]
+      }
+    ]
+  }
+}
