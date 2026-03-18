@@ -10,6 +10,8 @@ const OUTPUT_PATH = join(__dirname, '..', 'public', 'data', 'marketplaces.json')
 
 const SEARCH_DELAY_MS = 6000 // 6s between search API calls
 const REPO_DELAY_MS = 200   // 200ms between repo API calls
+const MAX_RETRIES = 5
+const INITIAL_RETRY_MS = 10_000 // 10s initial backoff for rate limits
 
 const octokit = new Octokit({
   auth: process.env['GITHUB_TOKEN'],
@@ -17,6 +19,29 @@ const octokit = new Octokit({
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function withRetry<T>(fn: () => Promise<T>, label: string): Promise<T> {
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      return await fn()
+    } catch (err: unknown) {
+      const status = (err as { status?: number }).status
+      const retryAfter = (err as { response?: { headers?: Record<string, string> } }).response?.headers?.['retry-after']
+
+      if (status === 429 || status === 403) {
+        if (attempt === MAX_RETRIES) throw err
+        const waitMs = retryAfter
+          ? parseInt(retryAfter, 10) * 1000
+          : INITIAL_RETRY_MS * Math.pow(2, attempt)
+        console.warn(`  ${label}: rate limited (${status}), retrying in ${Math.round(waitMs / 1000)}s (attempt ${attempt + 1}/${MAX_RETRIES})...`)
+        await sleep(waitMs)
+      } else {
+        throw err
+      }
+    }
+  }
+  throw new Error('unreachable')
 }
 
 function loadExisting(): Map<string, CollectedMarketplace> {
@@ -43,11 +68,14 @@ async function searchMarketplaceRepos(): Promise<string[]> {
   console.log('Searching for repos with .claude-plugin/marketplace.json...')
 
   while (true) {
-    const { data } = await octokit.search.code({
-      q: 'filename:marketplace.json path:.claude-plugin',
-      per_page: perPage,
-      page,
-    })
+    const { data } = await withRetry(
+      () => octokit.search.code({
+        q: 'filename:marketplace.json path:.claude-plugin',
+        per_page: perPage,
+        page,
+      }),
+      `search page ${page}`,
+    )
 
     for (const item of data.items) {
       repoSet.add(item.repository.full_name)
@@ -69,7 +97,10 @@ async function updateStarsAndForks(
 ): Promise<CollectedMarketplace | null> {
   const [owner, repo] = existing.repo.split('/')
   try {
-    const { data: repoData } = await octokit.repos.get({ owner: owner!, repo: repo! })
+    const { data: repoData } = await withRetry(
+      () => octokit.repos.get({ owner: owner!, repo: repo! }),
+      existing.repo,
+    )
     return {
       ...existing,
       stars: repoData.stargazers_count,
@@ -90,13 +121,19 @@ async function collectMarketplace(fullName: string): Promise<CollectedMarketplac
   const [owner, repo] = fullName.split('/')
 
   try {
-    const { data: repoData } = await octokit.repos.get({ owner: owner!, repo: repo! })
+    const { data: repoData } = await withRetry(
+      () => octokit.repos.get({ owner: owner!, repo: repo! }),
+      fullName,
+    )
 
-    const { data: fileData } = await octokit.repos.getContent({
-      owner: owner!,
-      repo: repo!,
-      path: '.claude-plugin/marketplace.json',
-    })
+    const { data: fileData } = await withRetry(
+      () => octokit.repos.getContent({
+        owner: owner!,
+        repo: repo!,
+        path: '.claude-plugin/marketplace.json',
+      }),
+      `${fullName}/marketplace.json`,
+    )
 
     if (!('content' in fileData)) {
       console.warn(`  ${fullName}: not a file`)
