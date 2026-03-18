@@ -28,7 +28,7 @@ async function searchMarketplaceRepos(): Promise<string[]> {
 
   while (true) {
     const { data } = await octokit.search.code({
-      q: 'path:.claude-plugin/marketplace.json',
+      q: 'filename:marketplace.json path:.claude-plugin',
       per_page: perPage,
       page,
     })
