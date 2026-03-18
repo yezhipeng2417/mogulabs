@@ -154,24 +154,6 @@
         .product-card:hover::before { opacity: 1; }
         .product-card.vela:hover { box-shadow: 0 20px 60px -15px rgba(124,110,240,0.25), 0 0 0 1px rgba(124,110,240,0.1); }
         .product-card.tap:hover { box-shadow: 0 20px 60px -15px rgba(10,240,176,0.25), 0 0 0 1px rgba(10,240,176,0.1); }
-        .product-card.mkt::before { background: radial-gradient(ellipse at 50% 0%, rgba(0,255,159,0.1) 0%, transparent 70%); }
-        .product-card.mkt:hover { box-shadow: 0 20px 60px -15px rgba(0,255,159,0.25), 0 0 0 1px rgba(0,255,159,0.1); }
-        .mkt-i { background: linear-gradient(135deg, #00ff9f, #00d4ff); box-shadow: 0 8px 32px rgba(0,255,159,0.3); }
-        .mkt-i .icon-glow { box-shadow: 0 0 40px 8px rgba(0,255,159,0.25); }
-        .mkt .product-cta { color: #5ee8c0; }
-
-        /* Tools section */
-        .tools-section {
-            width: 100%; max-width: 440px;
-            opacity: 0; transform: translateY(40px);
-            animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 1s forwards;
-        }
-        .tools-label {
-            font-size: 11px; font-weight: 600; letter-spacing: 4px;
-            text-transform: uppercase; color: var(--text3); margin-bottom: 16px;
-            text-align: center;
-        }
-
         /* Icon */
         .icon-wrap {
             width: 96px; height: 96px; border-radius: 24px;
@@ -254,18 +236,6 @@
                 <h2 class="product-name">TAP</h2>
                 <p class="product-desc">Voice typing keyboard with AI polish. Speak naturally, get perfectly formatted text in 35+ languages.</p>
                 <span class="product-cta">Explore TAP <span class="cta-arrow">&rarr;</span></span>
-            </a>
-        </div>
-        <div class="tools-section">
-            <div class="tools-label">Tools &amp; Community</div>
-            <a href="./marketplace/" class="product-card mkt">
-                <div class="icon-wrap mkt-i">
-                    <div class="icon-glow"></div>
-                    <span class="icon-emoji">&#9881;&#65039;</span>
-                </div>
-                <h2 class="product-name">Marketplace Explorer</h2>
-                <p class="product-desc">Discover Claude Code plugins and marketplaces. Auto-discovered from GitHub, beautifully organized.</p>
-                <span class="product-cta">Explore Plugins <span class="cta-arrow">&rarr;</span></span>
             </a>
         </div>
     </main>
