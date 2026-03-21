@@ -2116,6 +2116,11 @@
 
         .plan-item-text h4 { font-size: 14px; font-weight: 600; }
         .plan-item-text p { font-size: 12px; color: var(--text2); }
+
+        .lang-toggle { display:flex; align-items:center; gap:0; background:rgba(255,255,255,0.06); border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); }
+        .lang-btn { padding:6px 14px; font-size:13px; font-weight:600; background:none; border:none; color:var(--text2); cursor:pointer; transition:all 0.3s; font-family:inherit; }
+        .lang-btn.active { background:var(--accent); color:#fff; }
+        .lang-btn:hover:not(.active) { color:var(--text); }
     </style>
 </head>
 <body>
@@ -2144,20 +2149,24 @@
             <span>Vela</span>
         </a>
         <div class="nav-links">
-            <a href="#features">Features</a>
+            <a href="#features" data-en="Features" data-zh="功能">Features</a>
             <a href="#avela">Avela AI</a>
-            <a href="#health">Health</a>
-            <a href="#devices">Devices</a>
-            <a href="#download">Download</a>
-            <a href="support.html">Support</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
+            <a href="#health" data-en="Health" data-zh="健康">Health</a>
+            <a href="#devices" data-en="Devices" data-zh="设备">Devices</a>
+            <a href="#download" data-en="Download" data-zh="下载">Download</a>
+            <a href="support.html" data-en="Support" data-zh="支持">Support</a>
+            <a href="privacy.html" data-en="Privacy" data-zh="隐私">Privacy</a>
+            <a href="terms.html" data-en="Terms" data-zh="条款">Terms</a>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('zh')">中文</button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">
+        <div class="hero-badge" data-en="Powered by Apple HealthKit &amp; AI" data-zh="由 Apple HealthKit 与 AI 驱动">
             <div class="hero-badge-dot"></div>
             Powered by Apple HealthKit & AI
         </div>
@@ -2171,7 +2180,7 @@
             </span>
         </h1>
 
-        <p class="hero-sub">
+        <p class="hero-sub" data-en="Vela transforms your health data into personalized daily plans — workouts, nutrition, and recovery — all guided by Avela, your AI coach." data-zh="Vela 将您的健康数据转化为个性化的每日计划——锻炼、营养和恢复——一切由您的 AI 教练 Avela 指导。">
             Vela transforms your health data into personalized daily plans —
             workouts, nutrition, and recovery — all guided by Avela, your AI coach.
         </p>
@@ -2179,9 +2188,9 @@
         <div class="hero-buttons">
             <a href="#download" class="btn-primary">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                Download on App Store
+                <span data-en="Download on App Store" data-zh="在 App Store 下载">Download on App Store</span>
             </a>
-            <a href="#features" class="btn-secondary">
+            <a href="#features" class="btn-secondary" data-en="Explore Features" data-zh="探索功能">
                 Explore Features
             </a>
         </div>
@@ -2196,13 +2205,13 @@
                 <div class="phone-screen">
                     <div class="phone-notch"></div>
                     <div class="phone-content">
-                        <div class="phone-greeting">
+                        <div class="phone-greeting" data-en="Good Morning" data-zh="早上好">
                             Good Morning
-                            <span>Here's your day at a glance</span>
+                            <span data-en="Here's your day at a glance" data-zh="以下是您今日概览">Here's your day at a glance</span>
                         </div>
                         <div class="phone-score">
                             <div class="phone-score-value" data-count="87">0</div>
-                            <div class="phone-score-label">Readiness Score</div>
+                            <div class="phone-score-label" data-en="Readiness Score" data-zh="身体就绪评分">Readiness Score</div>
                         </div>
                         <div class="phone-metrics">
                             <div class="phone-metric">
@@ -2224,15 +2233,15 @@
                         <div class="phone-card-mini">
                             <div class="phone-card-mini-icon" style="background:rgba(124,110,240,0.12);color:var(--accent);">&#9889;</div>
                             <div class="phone-card-mini-text">
-                                <h4>Upper Body Strength</h4>
-                                <p>45 min &middot; Moderate intensity</p>
+                                <h4 data-en="Upper Body Strength" data-zh="上半身力量训练">Upper Body Strength</h4>
+                                <p data-en="45 min &middot; Moderate intensity" data-zh="45 分钟 · 中等强度">45 min &middot; Moderate intensity</p>
                             </div>
                         </div>
                         <div class="phone-card-mini">
                             <div class="phone-card-mini-icon" style="background:rgba(86,191,181,0.12);color:var(--accent3);">&#127811;</div>
                             <div class="phone-card-mini-text">
-                                <h4>Nutrition Plan</h4>
-                                <p>2,400 kcal &middot; 160g protein</p>
+                                <h4 data-en="Nutrition Plan" data-zh="营养计划">Nutrition Plan</h4>
+                                <p data-en="2,400 kcal &middot; 160g protein" data-zh="2,400 千卡 · 160g 蛋白质">2,400 kcal &middot; 160g protein</p>
                             </div>
                         </div>
                     </div>
@@ -2268,9 +2277,9 @@
     <!-- Features Bento Grid -->
     <section id="features">
         <div class="reveal">
-            <div class="section-label" style="color:var(--accent);">Features</div>
-            <div class="section-title">Everything you need.<br>Nothing you don't.</div>
-            <div class="section-desc">Six powerful modules working together to give you a complete picture of your health and fitness journey.</div>
+            <div class="section-label" style="color:var(--accent);" data-en="Features" data-zh="功能">Features</div>
+            <div class="section-title" data-en="Everything you need.<br>Nothing you don't." data-zh="你需要的一切。<br>仅此而已。">Everything you need.<br>Nothing you don't.</div>
+            <div class="section-desc" data-en="Six powerful modules working together to give you a complete picture of your health and fitness journey." data-zh="六个强大的模块协同工作，为您提供健康与健身旅程的完整画面。">Six powerful modules working together to give you a complete picture of your health and fitness journey.</div>
         </div>
 
         <div class="bento-grid">
@@ -2278,36 +2287,36 @@
                 <div class="card-highlight"></div>
                 <div class="card-glow" style="background:rgba(124,110,240,0.15);"></div>
                 <div class="bento-card-icon" style="background:rgba(124,110,240,0.12);color:var(--accent);">&#10024;</div>
-                <h3>Avela AI Coach</h3>
-                <p>Your personal AI health companion. Get real-time coaching, personalized briefings, and intelligent insights based on your unique health profile. Powered by on-device Apple Intelligence or cloud AI.</p>
+                <h3 data-en="Avela AI Coach" data-zh="Avela AI 教练">Avela AI Coach</h3>
+                <p data-en="Your personal AI health companion. Get real-time coaching, personalized briefings, and intelligent insights based on your unique health profile. Powered by on-device Apple Intelligence or cloud AI." data-zh="您的个人 AI 健康伙伴。获取实时指导、个性化简报和基于您独特健康档案的智能洞察。由设备端 Apple Intelligence 或云端 AI 驱动。">Your personal AI health companion. Get real-time coaching, personalized briefings, and intelligent insights based on your unique health profile. Powered by on-device Apple Intelligence or cloud AI.</p>
             </div>
             <div class="bento-card reveal reveal-delay-2" data-tilt>
                 <div class="card-highlight"></div>
                 <div class="card-glow" style="background:rgba(86,191,181,0.15);"></div>
                 <div class="bento-card-icon" style="background:rgba(86,191,181,0.12);color:var(--accent3);">&#127919;</div>
-                <h3>Readiness Score</h3>
-                <p>Know exactly how ready your body is each morning. Built from sleep, HRV, resting heart rate, and recovery data.</p>
+                <h3 data-en="Readiness Score" data-zh="就绪评分">Readiness Score</h3>
+                <p data-en="Know exactly how ready your body is each morning. Built from sleep, HRV, resting heart rate, and recovery data." data-zh="每天早上准确了解您的身体状态。基于睡眠、HRV、静息心率和恢复数据。">Know exactly how ready your body is each morning. Built from sleep, HRV, resting heart rate, and recovery data.</p>
             </div>
             <div class="bento-card reveal reveal-delay-1" data-tilt>
                 <div class="card-highlight"></div>
                 <div class="card-glow" style="background:rgba(232,126,154,0.15);"></div>
                 <div class="bento-card-icon" style="background:rgba(232,126,154,0.12);color:var(--accent2);">&#9829;</div>
-                <h3>Recovery Monitoring</h3>
-                <p>Track your recovery in real-time with HRV trends, resting heart rate analysis, and component-level scoring.</p>
+                <h3 data-en="Recovery Monitoring" data-zh="恢复监测">Recovery Monitoring</h3>
+                <p data-en="Track your recovery in real-time with HRV trends, resting heart rate analysis, and component-level scoring." data-zh="通过 HRV 趋势、静息心率分析和各维度评分实时追踪您的恢复状况。">Track your recovery in real-time with HRV trends, resting heart rate analysis, and component-level scoring.</p>
             </div>
             <div class="bento-card reveal reveal-delay-2" data-tilt>
                 <div class="card-highlight"></div>
                 <div class="card-glow" style="background:rgba(110,168,240,0.15);"></div>
                 <div class="bento-card-icon" style="background:rgba(110,168,240,0.12);color:var(--accent4);">&#9889;</div>
-                <h3>Smart Workouts</h3>
-                <p>AI-generated workout plans that adapt to your fitness level, goals, and current readiness. Strength, cardio, HIIT, mobility — all personalized.</p>
+                <h3 data-en="Smart Workouts" data-zh="智能锻炼">Smart Workouts</h3>
+                <p data-en="AI-generated workout plans that adapt to your fitness level, goals, and current readiness. Strength, cardio, HIIT, mobility — all personalized." data-zh="AI 生成的锻炼计划，根据您的体能水平、目标和当前就绪度自动调整。力量、有氧、HIIT、灵活性——全部个性化。">AI-generated workout plans that adapt to your fitness level, goals, and current readiness. Strength, cardio, HIIT, mobility — all personalized.</p>
             </div>
             <div class="bento-card large reveal reveal-delay-3" data-tilt>
                 <div class="card-highlight"></div>
                 <div class="card-glow" style="background:rgba(86,191,181,0.15);"></div>
                 <div class="bento-card-icon" style="background:rgba(86,191,181,0.12);color:var(--accent3);">&#9790;</div>
-                <h3>Deep Sleep Insights</h3>
-                <p>Go beyond hours in bed. Vela analyzes sleep efficiency, quality scores, and patterns to help you understand and improve your rest. See how your sleep directly impacts your readiness and recovery.</p>
+                <h3 data-en="Deep Sleep Insights" data-zh="深度睡眠洞察">Deep Sleep Insights</h3>
+                <p data-en="Go beyond hours in bed. Vela analyzes sleep efficiency, quality scores, and patterns to help you understand and improve your rest. See how your sleep directly impacts your readiness and recovery." data-zh="不仅仅是卧床时间。Vela 分析睡眠效率、质量评分和模式，帮助您理解和改善休息。了解睡眠如何直接影响您的就绪度和恢复。">Go beyond hours in bed. Vela analyzes sleep efficiency, quality scores, and patterns to help you understand and improve your rest. See how your sleep directly impacts your readiness and recovery.</p>
             </div>
         </div>
     </section>
@@ -2316,7 +2325,7 @@
 
     <!-- Statement -->
     <div class="statement reveal-scale">
-        <h2>Health data is complex.<br>Your daily plan <em>shouldn't be</em>.</h2>
+        <h2 data-en="Health data is complex.<br>Your daily plan <em>shouldn't be</em>." data-zh="健康数据很复杂。<br>您的每日计划<em>不应如此</em>。">Health data is complex.<br>Your daily plan <em>shouldn't be</em>.</h2>
     </div>
 
     <div class="divider"></div>
@@ -2327,14 +2336,14 @@
         <div class="feature-row">
             <div class="feature-text reveal-left">
                 <div class="feature-number">01</div>
-                <div class="section-label" style="color:var(--accent3);">Readiness</div>
-                <h3>Start every day with clarity</h3>
-                <p>Your Readiness Score synthesizes sleep quality, heart rate variability, resting heart rate, and recovery into a single, actionable number. Green means go hard. Yellow means train smart. Red means rest and recover.</p>
+                <div class="section-label" style="color:var(--accent3);" data-en="Readiness" data-zh="就绪度">Readiness</div>
+                <h3 data-en="Start every day with clarity" data-zh="每天都从清晰开始">Start every day with clarity</h3>
+                <p data-en="Your Readiness Score synthesizes sleep quality, heart rate variability, resting heart rate, and recovery into a single, actionable number. Green means go hard. Yellow means train smart. Red means rest and recover." data-zh="您的就绪评分综合了睡眠质量、心率变异性、静息心率和恢复状况，生成一个可操作的数字。绿色表示全力以赴。黄色表示聪明训练。红色表示休息恢复。">Your Readiness Score synthesizes sleep quality, heart rate variability, resting heart rate, and recovery into a single, actionable number. Green means go hard. Yellow means train smart. Red means rest and recover.</p>
                 <div class="feature-tags">
-                    <span class="feature-tag">HRV Analysis</span>
-                    <span class="feature-tag">Sleep Quality</span>
-                    <span class="feature-tag">Recovery Status</span>
-                    <span class="feature-tag">RHR Trends</span>
+                    <span class="feature-tag" data-en="HRV Analysis" data-zh="HRV 分析">HRV Analysis</span>
+                    <span class="feature-tag" data-en="Sleep Quality" data-zh="睡眠质量">Sleep Quality</span>
+                    <span class="feature-tag" data-en="Recovery Status" data-zh="恢复状态">Recovery Status</span>
+                    <span class="feature-tag" data-en="RHR Trends" data-zh="RHR 趋势">RHR Trends</span>
                 </div>
             </div>
             <div class="feature-visual reveal-right reveal-delay-2">
@@ -2346,7 +2355,7 @@
                         </svg>
                         <div class="visual-ring-value" style="color:var(--accent3);">87</div>
                     </div>
-                    <div class="visual-ring-label">Your body is ready to perform</div>
+                    <div class="visual-ring-label" data-en="Your body is ready to perform" data-zh="您的身体已准备好表现">Your body is ready to perform</div>
                 </div>
             </div>
         </div>
@@ -2355,14 +2364,14 @@
         <div class="feature-row reverse">
             <div class="feature-text reveal-right">
                 <div class="feature-number">02</div>
-                <div class="section-label" style="color:var(--accent4);">Sleep</div>
-                <h3>Unlock the power of rest</h3>
-                <p>See your sleep architecture come alive. Duration, efficiency, quality score, and weekly trends — all visualized to help you build the habits that lead to deeper, more restorative sleep.</p>
+                <div class="section-label" style="color:var(--accent4);" data-en="Sleep" data-zh="睡眠">Sleep</div>
+                <h3 data-en="Unlock the power of rest" data-zh="释放休息的力量">Unlock the power of rest</h3>
+                <p data-en="See your sleep architecture come alive. Duration, efficiency, quality score, and weekly trends — all visualized to help you build the habits that lead to deeper, more restorative sleep." data-zh="看到您的睡眠结构栩栩如生。时长、效率、质量评分和每周趋势——全部可视化，帮助您养成带来更深层、更恢复性睡眠的习惯。">See your sleep architecture come alive. Duration, efficiency, quality score, and weekly trends — all visualized to help you build the habits that lead to deeper, more restorative sleep.</p>
                 <div class="feature-tags">
-                    <span class="feature-tag">Sleep Duration</span>
-                    <span class="feature-tag">Quality Score</span>
-                    <span class="feature-tag">Efficiency</span>
-                    <span class="feature-tag">Weekly Trends</span>
+                    <span class="feature-tag" data-en="Sleep Duration" data-zh="睡眠时长">Sleep Duration</span>
+                    <span class="feature-tag" data-en="Quality Score" data-zh="质量评分">Quality Score</span>
+                    <span class="feature-tag" data-en="Efficiency" data-zh="效率">Efficiency</span>
+                    <span class="feature-tag" data-en="Weekly Trends" data-zh="每周趋势">Weekly Trends</span>
                 </div>
             </div>
             <div class="feature-visual reveal-left reveal-delay-2">
@@ -2381,7 +2390,7 @@
                     </div>
                     <div style="text-align:center;margin-top:20px;">
                         <div class="counter-value" data-count-float="7.5" data-suffix="h" style="font-size:32px;font-weight:800;color:var(--accent4);">0h</div>
-                        <div style="font-size:13px;color:var(--text2);">Weekly Average</div>
+                        <div style="font-size:13px;color:var(--text2);" data-en="Weekly Average" data-zh="每周平均">Weekly Average</div>
                     </div>
                 </div>
             </div>
@@ -2391,14 +2400,14 @@
         <div class="feature-row">
             <div class="feature-text reveal-left">
                 <div class="feature-number">03</div>
-                <div class="section-label" style="color:var(--accent2);">Daily Plan</div>
-                <h3>One plan. Perfectly yours.</h3>
-                <p>Every morning, Vela generates a complete daily plan tailored to your current state. Workouts calibrated to your readiness, nutrition matched to your goals, and daily habits to keep you on track.</p>
+                <div class="section-label" style="color:var(--accent2);" data-en="Daily Plan" data-zh="每日计划">Daily Plan</div>
+                <h3 data-en="One plan. Perfectly yours." data-zh="一个计划。完美适合您。">One plan. Perfectly yours.</h3>
+                <p data-en="Every morning, Vela generates a complete daily plan tailored to your current state. Workouts calibrated to your readiness, nutrition matched to your goals, and daily habits to keep you on track." data-zh="每天早上，Vela 根据您的当前状态生成完整的每日计划。根据就绪度校准的锻炼，匹配目标的营养，以及保持正轨的日常习惯。">Every morning, Vela generates a complete daily plan tailored to your current state. Workouts calibrated to your readiness, nutrition matched to your goals, and daily habits to keep you on track.</p>
                 <div class="feature-tags">
-                    <span class="feature-tag">Workouts</span>
-                    <span class="feature-tag">Nutrition</span>
-                    <span class="feature-tag">Daily Habits</span>
-                    <span class="feature-tag">Macro Tracking</span>
+                    <span class="feature-tag" data-en="Workouts" data-zh="锻炼">Workouts</span>
+                    <span class="feature-tag" data-en="Nutrition" data-zh="营养">Nutrition</span>
+                    <span class="feature-tag" data-en="Daily Habits" data-zh="日常习惯">Daily Habits</span>
+                    <span class="feature-tag" data-en="Macro Tracking" data-zh="宏量营养素追踪">Macro Tracking</span>
                 </div>
             </div>
             <div class="feature-visual reveal-right reveal-delay-2">
@@ -2407,22 +2416,22 @@
                         <div class="plan-item" style="background:rgba(124,110,240,0.08);border:1px solid rgba(124,110,240,0.15);">
                             <div class="plan-item-icon" style="background:rgba(124,110,240,0.15);">&#128170;</div>
                             <div class="plan-item-text">
-                                <h4>Push Day — Chest & Shoulders</h4>
-                                <p>50 min &middot; High Intensity</p>
+                                <h4 data-en="Push Day — Chest &amp; Shoulders" data-zh="推举日——胸部和肩部">Push Day — Chest & Shoulders</h4>
+                                <p data-en="50 min &middot; High Intensity" data-zh="50 分钟 · 高强度">50 min &middot; High Intensity</p>
                             </div>
                         </div>
                         <div class="plan-item" style="background:rgba(86,191,181,0.08);border:1px solid rgba(86,191,181,0.15);">
                             <div class="plan-item-icon" style="background:rgba(86,191,181,0.15);">&#127811;</div>
                             <div class="plan-item-text">
-                                <h4>High Protein Meal Plan</h4>
+                                <h4 data-en="High Protein Meal Plan" data-zh="高蛋白饮食计划">High Protein Meal Plan</h4>
                                 <p>2,400 kcal &middot; P 160g &middot; C 280g &middot; F 75g</p>
                             </div>
                         </div>
                         <div class="plan-item" style="background:rgba(232,126,154,0.08);border:1px solid rgba(232,126,154,0.15);">
                             <div class="plan-item-icon" style="background:rgba(232,126,154,0.15);">&#10004;</div>
                             <div class="plan-item-text">
-                                <h4>Daily Habits</h4>
-                                <p>3 of 5 completed</p>
+                                <h4 data-en="Daily Habits" data-zh="日常习惯">Daily Habits</h4>
+                                <p data-en="3 of 5 completed" data-zh="已完成 3/5">3 of 5 completed</p>
                             </div>
                         </div>
                     </div>
@@ -2437,8 +2446,8 @@
     <section class="avela-section" id="avela">
         <div class="reveal">
             <div class="section-label" style="color:var(--accent2);">Meet Avela</div>
-            <div class="section-title">Your AI coach.<br>Always on. Always learning.</div>
-            <div class="section-desc">Avela understands your health data, your goals, and your life. Ask anything — from workout advice to recovery strategies — and get intelligent, personalized responses.</div>
+            <div class="section-title" data-en="Your AI coach.<br>Always on. Always learning." data-zh="您的 AI 教练。<br>始终在线。持续学习。">Your AI coach.<br>Always on. Always learning.</div>
+            <div class="section-desc" data-en="Avela understands your health data, your goals, and your life. Ask anything — from workout advice to recovery strategies — and get intelligent, personalized responses." data-zh="Avela 了解您的健康数据、目标和生活。随时提问——从锻炼建议到恢复策略——获得智能、个性化的回答。">Avela understands your health data, your goals, and your life. Ask anything — from workout advice to recovery strategies — and get intelligent, personalized responses.</div>
         </div>
 
         <div class="avela-demo reveal-scale reveal-delay-2" id="avelaDemo">
@@ -2446,17 +2455,17 @@
                 <div class="avela-avatar">&#10024;</div>
                 <div>
                     <div class="avela-name">Avela</div>
-                    <div class="avela-status">Online &middot; Analyzing your data</div>
+                    <div class="avela-status" data-en="Online &middot; Analyzing your data" data-zh="在线 · 分析您的数据">Online &middot; Analyzing your data</div>
                 </div>
             </div>
             <div class="avela-chat" id="avelaChat">
-                <div class="chat-msg user">How's my recovery looking today?</div>
-                <div class="chat-msg ai">Your recovery is strong at 82%. HRV is trending up — 48ms vs your 7-day average of 42ms. Resting heart rate is 62 bpm, well within your optimal range. You're clear for a high-intensity session today.</div>
-                <div class="chat-msg user">Should I do legs or upper body?</div>
-                <div class="chat-msg ai">Based on your training log, you did upper body 2 days ago and haven't trained legs since Thursday. I'd recommend a lower body session — your recovery supports it, and it fits your push-pull-legs cycle. I've prepared a 50-minute plan for you.</div>
+                <div class="chat-msg user" data-en="How's my recovery looking today?" data-zh="我今天的恢复情况怎么样？">How's my recovery looking today?</div>
+                <div class="chat-msg ai" data-en="Your recovery is strong at 82%. HRV is trending up — 48ms vs your 7-day average of 42ms. Resting heart rate is 62 bpm, well within your optimal range. You're clear for a high-intensity session today." data-zh="您的恢复状况很好，达到 82%。HRV 呈上升趋势——48ms，高于您 7 天平均的 42ms。静息心率 62 bpm，在最佳范围内。今天可以进行高强度训练。">Your recovery is strong at 82%. HRV is trending up — 48ms vs your 7-day average of 42ms. Resting heart rate is 62 bpm, well within your optimal range. You're clear for a high-intensity session today.</div>
+                <div class="chat-msg user" data-en="Should I do legs or upper body?" data-zh="我应该练腿还是上半身？">Should I do legs or upper body?</div>
+                <div class="chat-msg ai" data-en="Based on your training log, you did upper body 2 days ago and haven't trained legs since Thursday. I'd recommend a lower body session — your recovery supports it, and it fits your push-pull-legs cycle. I've prepared a 50-minute plan for you." data-zh="根据您的训练记录，您两天前练了上半身，上次练腿是周四。我建议进行下半身训练——您的恢复状况支持这样做，也符合您的推-拉-腿周期。我已经为您准备了一个 50 分钟的计划。">Based on your training log, you did upper body 2 days ago and haven't trained legs since Thursday. I'd recommend a lower body session — your recovery supports it, and it fits your push-pull-legs cycle. I've prepared a 50-minute plan for you.</div>
             </div>
             <div class="avela-input">
-                <div class="avela-input-field">Ask Avela anything...</div>
+                <div class="avela-input-field" data-en="Ask Avela anything..." data-zh="向 Avela 提问...">Ask Avela anything...</div>
                 <div class="avela-input-send">&#8593;</div>
             </div>
         </div>
@@ -2467,16 +2476,16 @@
     <!-- Health Metrics -->
     <section class="metrics-section">
         <div class="reveal">
-            <div class="section-label" style="color:var(--accent3);">Health Dashboard</div>
-            <div class="section-title">Your vitals.<br>Beautifully tracked.</div>
-            <div class="section-desc">Every heartbeat, every breath, every moment of rest — captured and analyzed to give you a deeper understanding of your body.</div>
+            <div class="section-label" style="color:var(--accent3);" data-en="Health Dashboard" data-zh="健康仪表板">Health Dashboard</div>
+            <div class="section-title" data-en="Your vitals.<br>Beautifully tracked." data-zh="您的生命体征。<br>精美追踪。">Your vitals.<br>Beautifully tracked.</div>
+            <div class="section-desc" data-en="Every heartbeat, every breath, every moment of rest — captured and analyzed to give you a deeper understanding of your body." data-zh="每一次心跳，每一次呼吸，每一刻休息——被捕捉和分析，让您更深入地了解自己的身体。">Every heartbeat, every breath, every moment of rest — captured and analyzed to give you a deeper understanding of your body.</div>
         </div>
 
         <div class="metrics-grid" style="margin-top:64px;">
             <div class="metric-card reveal reveal-delay-1">
                 <div class="metric-icon" style="color:var(--accent2);">&#9829;</div>
                 <div class="metric-value" style="color:var(--accent2);" data-count="62">0</div>
-                <div class="metric-label">Resting HR</div>
+                <div class="metric-label" data-en="Resting HR" data-zh="静息心率">Resting HR</div>
                 <div class="metric-bar">
                     <div class="metric-bar-fill" style="--fill:62%;background:linear-gradient(90deg,var(--accent2),rgba(232,126,154,0.4));"></div>
                 </div>
@@ -2492,7 +2501,7 @@
             <div class="metric-card reveal reveal-delay-3">
                 <div class="metric-icon" style="color:var(--accent4);">&#127748;</div>
                 <div class="metric-value" style="color:var(--accent4);" data-count-float="7.5" data-suffix="h">0</div>
-                <div class="metric-label">Sleep</div>
+                <div class="metric-label" data-en="Sleep" data-zh="睡眠">Sleep</div>
                 <div class="metric-bar">
                     <div class="metric-bar-fill" style="--fill:85%;background:linear-gradient(90deg,var(--accent4),rgba(110,168,240,0.4));"></div>
                 </div>
@@ -2500,7 +2509,7 @@
             <div class="metric-card reveal reveal-delay-4">
                 <div class="metric-icon" style="color:var(--accent);">&#128293;</div>
                 <div class="metric-value" style="color:var(--accent);" data-count="520" data-suffix="cal">0</div>
-                <div class="metric-label">Burned</div>
+                <div class="metric-label" data-en="Burned" data-zh="消耗">Burned</div>
                 <div class="metric-bar">
                     <div class="metric-bar-fill" style="--fill:65%;background:linear-gradient(90deg,var(--accent),rgba(124,110,240,0.4));"></div>
                 </div>
@@ -2512,7 +2521,7 @@
 
     <!-- Second Statement -->
     <div class="statement reveal-scale">
-        <h2>Built for people who take their health <em>seriously</em>.</h2>
+        <h2 data-en="Built for people who take their health <em>seriously</em>." data-zh="为认真对待健康的人<em>而生</em>。">Built for people who take their health <em>seriously</em>.</h2>
     </div>
 
     <div class="divider"></div>
@@ -2522,10 +2531,10 @@
         <div class="reveal">
             <div class="works-with-badge">
                 <span class="badge-icon">&#9881;</span>
-                Works with any device
+                <span data-en="Works with any device" data-zh="兼容任何设备">Works with any device</span>
             </div>
-            <div class="section-title">All your devices.<br>One powerful app.</div>
-            <div class="section-desc">Apple Watch, WHOOP, Oura Ring, RingConn, Garmin, smart scales — if it syncs to Apple Health, Vela turns its data into actionable insights.</div>
+            <div class="section-title" data-en="All your devices.<br>One powerful app." data-zh="您所有的设备。<br>一个强大的应用。">All your devices.<br>One powerful app.</div>
+            <div class="section-desc" data-en="Apple Watch, WHOOP, Oura Ring, RingConn, Garmin, smart scales — if it syncs to Apple Health, Vela turns its data into actionable insights." data-zh="Apple Watch、WHOOP、Oura Ring、RingConn、Garmin、智能体重秤——只要能同步到 Apple Health，Vela 就能将其数据转化为可操作的洞察。">Apple Watch, WHOOP, Oura Ring, RingConn, Garmin, smart scales — if it syncs to Apple Health, Vela turns its data into actionable insights.</div>
         </div>
 
         <!-- Animated Data Flow Visualization -->
@@ -2597,25 +2606,25 @@
         <!-- Apple Health Banner -->
         <div class="apple-health-banner reveal">
             <div class="ahb-icon">&#9829;</div>
-            <p><strong>Works with any Apple Health-compatible device.</strong> If your device syncs data to Apple Health — heart rate, sleep, workouts, body composition — Vela can analyze it. No extra setup needed.</p>
+            <p data-en="<strong>Works with any Apple Health-compatible device.</strong> If your device syncs data to Apple Health — heart rate, sleep, workouts, body composition — Vela can analyze it. No extra setup needed." data-zh="<strong>兼容所有 Apple Health 设备。</strong>如果您的设备将数据同步到 Apple Health——心率、睡眠、锻炼、身体成分——Vela 就能分析它。无需额外设置。"><strong>Works with any Apple Health-compatible device.</strong> If your device syncs data to Apple Health — heart rate, sleep, workouts, body composition — Vela can analyze it. No extra setup needed.</p>
         </div>
 
         <!-- Insight Cards -->
         <div class="insight-grid">
             <div class="insight-card reveal reveal-delay-1">
                 <div class="insight-icon" style="background: rgba(124,110,240,0.1); color: var(--accent);">&#128208;</div>
-                <h4>Cross-Device Intelligence</h4>
-                <p>Vela aggregates data from all your wearables and health devices through Apple Health, giving you a unified view no single device can provide.</p>
+                <h4 data-en="Cross-Device Intelligence" data-zh="跨设备智能">Cross-Device Intelligence</h4>
+                <p data-en="Vela aggregates data from all your wearables and health devices through Apple Health, giving you a unified view no single device can provide." data-zh="Vela 通过 Apple Health 聚合来自所有可穿戴设备和健康设备的数据，为您提供单一设备无法提供的统一视图。">Vela aggregates data from all your wearables and health devices through Apple Health, giving you a unified view no single device can provide.</p>
             </div>
             <div class="insight-card reveal reveal-delay-2">
                 <div class="insight-icon" style="background: rgba(86,191,181,0.1); color: var(--accent3);">&#128300;</div>
-                <h4>Professional Analytics</h4>
-                <p>Lab-grade analysis of your HRV, sleep architecture, recovery patterns, and training load — the kind of insights usually reserved for elite athletes.</p>
+                <h4 data-en="Professional Analytics" data-zh="专业分析">Professional Analytics</h4>
+                <p data-en="Lab-grade analysis of your HRV, sleep architecture, recovery patterns, and training load — the kind of insights usually reserved for elite athletes." data-zh="实验室级别的 HRV、睡眠架构、恢复模式和训练负荷分析——通常只有精英运动员才能获得的洞察。">Lab-grade analysis of your HRV, sleep architecture, recovery patterns, and training load — the kind of insights usually reserved for elite athletes.</p>
             </div>
             <div class="insight-card reveal reveal-delay-3">
                 <div class="insight-icon" style="background: rgba(232,126,154,0.1); color: var(--accent2);">&#128161;</div>
-                <h4>Actionable Insights</h4>
-                <p>Raw data becomes clear guidance. Vela doesn't just show numbers — it tells you what to do, when to train hard, and when to rest.</p>
+                <h4 data-en="Actionable Insights" data-zh="可操作的洞察">Actionable Insights</h4>
+                <p data-en="Raw data becomes clear guidance. Vela doesn't just show numbers — it tells you what to do, when to train hard, and when to rest." data-zh="原始数据变成清晰指导。Vela 不仅显示数字——它告诉您该做什么，何时高强度训练，何时休息。">Raw data becomes clear guidance. Vela doesn't just show numbers — it tells you what to do, when to train hard, and when to rest.</p>
             </div>
         </div>
 
@@ -2666,7 +2675,7 @@
 
     <!-- Data Statement -->
     <div class="statement reveal-scale">
-        <h2>Your devices collect the data.<br>Vela delivers the <em>breakthrough</em>.</h2>
+        <h2 data-en="Your devices collect the data.<br>Vela delivers the <em>breakthrough</em>." data-zh="您的设备收集数据。<br>Vela 带来<em>突破</em>。">Your devices collect the data.<br>Vela delivers the <em>breakthrough</em>.</h2>
     </div>
 
     <div class="divider"></div>
@@ -2674,14 +2683,14 @@
     <!-- CTA Section -->
     <section class="cta-section" id="download">
         <div class="reveal">
-            <h2>Ready to transform<br>your health journey?</h2>
-            <p>Download Vela and meet Avela, your AI-powered health companion. Free to start — unlock the full experience with Pro.</p>
+            <h2 data-en="Ready to transform<br>your health journey?" data-zh="准备好变革<br>您的健康之旅了吗？">Ready to transform<br>your health journey?</h2>
+            <p data-en="Download Vela and meet Avela, your AI-powered health companion. Free to start — unlock the full experience with Pro." data-zh="下载 Vela，认识您的 AI 健康伙伴 Avela。免费开始——通过 Pro 解锁完整体验。">Download Vela and meet Avela, your AI-powered health companion. Free to start — unlock the full experience with Pro.</p>
         </div>
         <div class="cta-buttons reveal reveal-delay-2">
             <a href="#" class="app-store-badge">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 <div class="badge-text">
-                    <small>Download on the</small>
+                    <small data-en="Download on the" data-zh="下载于">Download on the</small>
                     <strong>App Store</strong>
                 </div>
             </a>
@@ -2693,16 +2702,16 @@
         <div class="footer-inner">
             <div class="footer-left">
                 <img src="appicon.png" alt="Vela">
-                <span>&copy; 2026 Vela. All rights reserved.</span>
+                <span data-en="&copy; 2026 Vela. All rights reserved." data-zh="&copy; 2026 Vela. 保留所有权利。">&copy; 2026 Vela. All rights reserved.</span>
             </div>
             <div class="footer-links">
-                <a href="support.html">Support</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Use</a>
+                <a href="support.html" data-en="Support" data-zh="支持">Support</a>
+                <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+                <a href="terms.html" data-en="Terms of Use" data-zh="使用条款">Terms of Use</a>
             </div>
         </div>
         <div class="footer-bottom">
-            Apple, the Apple logo, iPhone, and HealthKit are trademarks of Apple Inc.
+            <span data-en="Apple, the Apple logo, iPhone, and HealthKit are trademarks of Apple Inc." data-zh="Apple、Apple 标志、iPhone 和 HealthKit 是 Apple Inc. 的商标。">Apple, the Apple logo, iPhone, and HealthKit are trademarks of Apple Inc.</span>
         </div>
     </footer>
 
@@ -3181,6 +3190,22 @@
                 phoneFrame.style.transform = '';
             });
         }
+
+        // ===== Language Switching =====
+        let currentLang = localStorage.getItem('vela-lang') || 'en';
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('vela-lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中文'));
+            });
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) el.innerHTML = text;
+            });
+            document.title = lang === 'en' ? 'Vela — Your AI-Powered Health Companion' : 'Vela — 您的 AI 健康伙伴';
+        }
+        if (currentLang !== 'en') setLang(currentLang);
     </script>
 </body>
 </html>
