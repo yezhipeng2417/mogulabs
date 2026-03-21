@@ -121,115 +121,139 @@
             text-decoration: none;
         }
         .footer a:hover { text-decoration: underline; }
+        .lang-toggle { display:flex; align-items:center; gap:0; background:rgba(255,255,255,0.06); border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); margin-left: auto; }
+        .lang-btn { padding:6px 14px; font-size:13px; font-weight:600; background:none; border:none; color:var(--text2); cursor:pointer; transition:all 0.3s; font-family:inherit; }
+        .lang-btn.active { background:var(--accent); color:#fff; }
+        .lang-btn:hover:not(.active) { color:var(--text); }
     </style>
 </head>
 <body>
     <div class="topbar">
         <a href="index.html">Vela</a>
         <span class="sep">/</span>
-        <span class="current">Terms of Use</span>
+        <span class="current" data-en="Terms of Use" data-zh="使用条款">Terms of Use</span>
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('zh')">中文</button>
+        </div>
     </div>
 
     <div class="container">
-        <h1>Terms of Use</h1>
-        <p class="updated">Last updated: March 2026</p>
+        <h1 data-en="Terms of Use" data-zh="使用条款">Terms of Use</h1>
+        <p class="updated" data-en="Last updated: March 2026" data-zh="最后更新：2026 年 3 月">Last updated: March 2026</p>
 
         <div class="section">
-            <h2>1. Acceptance of Terms</h2>
-            <p>By downloading, installing, or using Vela ("the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the App.</p>
+            <h2 data-en="1. Acceptance of Terms" data-zh="1. 条款接受">1. Acceptance of Terms</h2>
+            <p data-en="By downloading, installing, or using Vela (&quot;the App&quot;), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the App." data-zh="通过下载、安装或使用 Vela（"本应用"），您同意受这些使用条款的约束。如果您不同意这些条款，请不要使用本应用。">By downloading, installing, or using Vela ("the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the App.</p>
         </div>
 
         <div class="section">
-            <h2>2. Service Description</h2>
-            <p>Vela is a fitness and health management application that provides workout planning, nutrition guidance, habit tracking, and AI-powered coaching features. The App integrates with Apple HealthKit to read and analyze your health data, and optionally provides cloud backup for data synchronization across your devices.</p>
+            <h2 data-en="2. Service Description" data-zh="2. 服务描述">2. Service Description</h2>
+            <p data-en="Vela is a fitness and health management application that provides workout planning, nutrition guidance, habit tracking, and AI-powered coaching features. The App integrates with Apple HealthKit to read and analyze your health data, and optionally provides cloud backup for data synchronization across your devices." data-zh="Vela 是一款健身和健康管理应用，提供锻炼计划、营养指导、习惯追踪和 AI 驱动的指导功能。本应用与 Apple HealthKit 集成以读取和分析您的健康数据，并可选择提供云备份以跨设备同步数据。">Vela is a fitness and health management application that provides workout planning, nutrition guidance, habit tracking, and AI-powered coaching features. The App integrates with Apple HealthKit to read and analyze your health data, and optionally provides cloud backup for data synchronization across your devices.</p>
         </div>
 
         <div class="section">
-            <h2>3. Health Disclaimer</h2>
+            <h2 data-en="3. Health Disclaimer" data-zh="3. 健康免责声明">3. Health Disclaimer</h2>
             <div class="important">
-                <p><strong>IMPORTANT:</strong> Vela is NOT a medical device and does NOT provide medical advice, diagnosis, or treatment. All fitness plans, nutrition suggestions, and health insights provided by the App are for informational and general wellness purposes only.</p>
+                <p data-en="&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Vela is NOT a medical device and does NOT provide medical advice, diagnosis, or treatment. All fitness plans, nutrition suggestions, and health insights provided by the App are for informational and general wellness purposes only." data-zh="&lt;strong&gt;重要：&lt;/strong&gt;Vela 不是医疗设备，不提供医疗建议、诊断或治疗。本应用提供的所有健身计划、营养建议和健康洞察仅供参考和一般健康目的。"><strong>IMPORTANT:</strong> Vela is NOT a medical device and does NOT provide medical advice, diagnosis, or treatment. All fitness plans, nutrition suggestions, and health insights provided by the App are for informational and general wellness purposes only.</p>
             </div>
-            <p>You should always consult a qualified healthcare professional before starting any new exercise program, making dietary changes, or acting on any health-related information provided by the App. If you experience any discomfort, pain, or adverse symptoms during exercise, stop immediately and seek medical attention.</p>
-            <p>The App is not intended to replace professional medical advice. Reliance on any information provided by Vela is solely at your own risk.</p>
+            <p data-en="You should always consult a qualified healthcare professional before starting any new exercise program, making dietary changes, or acting on any health-related information provided by the App. If you experience any discomfort, pain, or adverse symptoms during exercise, stop immediately and seek medical attention." data-zh="在开始任何新的运动计划、改变饮食或根据本应用提供的任何健康相关信息采取行动之前，您应始终咨询合格的医疗保健专业人员。如果您在运动过程中感到任何不适、疼痛或不良症状，请立即停止并寻求医疗帮助。">You should always consult a qualified healthcare professional before starting any new exercise program, making dietary changes, or acting on any health-related information provided by the App. If you experience any discomfort, pain, or adverse symptoms during exercise, stop immediately and seek medical attention.</p>
+            <p data-en="The App is not intended to replace professional medical advice. Reliance on any information provided by Vela is solely at your own risk." data-zh="本应用无意替代专业医疗建议。依赖 Vela 提供的任何信息，风险完全由您自行承担。">The App is not intended to replace professional medical advice. Reliance on any information provided by Vela is solely at your own risk.</p>
         </div>
 
         <div class="section">
-            <h2>4. AI-Generated Content</h2>
-            <p>Vela uses artificial intelligence services, including but not limited to DeepSeek API and Apple Intelligence, to generate personalized fitness plans, nutrition suggestions, and coaching advice ("AI Content").</p>
-            <p>AI Content is generated algorithmically and may contain inaccuracies, errors, or inappropriate suggestions. The App provides a deterministic fallback engine when AI services are unavailable. AI Content does not constitute professional advice of any kind.</p>
-            <p>You acknowledge that: (a) AI Content should be reviewed critically before acting upon it; (b) AI models may produce different results for the same input; (c) the quality and accuracy of AI Content depend on third-party AI service providers and are not guaranteed by Vela.</p>
+            <h2 data-en="4. AI-Generated Content" data-zh="4. AI 生成内容">4. AI-Generated Content</h2>
+            <p data-en="Vela uses artificial intelligence services, including but not limited to DeepSeek API and Apple Intelligence, to generate personalized fitness plans, nutrition suggestions, and coaching advice (&quot;AI Content&quot;)." data-zh="Vela 使用人工智能服务，包括但不限于 DeepSeek API 和 Apple Intelligence，来生成个性化的健身计划、营养建议和指导建议（"AI 内容"）。">Vela uses artificial intelligence services, including but not limited to DeepSeek API and Apple Intelligence, to generate personalized fitness plans, nutrition suggestions, and coaching advice ("AI Content").</p>
+            <p data-en="AI Content is generated algorithmically and may contain inaccuracies, errors, or inappropriate suggestions. The App provides a deterministic fallback engine when AI services are unavailable. AI Content does not constitute professional advice of any kind." data-zh="AI 内容由算法生成，可能包含不准确、错误或不适当的建议。当 AI 服务不可用时，本应用提供确定性回退引擎。AI 内容不构成任何专业建议。">AI Content is generated algorithmically and may contain inaccuracies, errors, or inappropriate suggestions. The App provides a deterministic fallback engine when AI services are unavailable. AI Content does not constitute professional advice of any kind.</p>
+            <p data-en="You acknowledge that: (a) AI Content should be reviewed critically before acting upon it; (b) AI models may produce different results for the same input; (c) the quality and accuracy of AI Content depend on third-party AI service providers and are not guaranteed by Vela." data-zh="您承认：(a) 在根据 AI 内容采取行动之前应进行批判性审查；(b) AI 模型对相同输入可能产生不同结果；(c) AI 内容的质量和准确性取决于第三方 AI 服务提供商，Vela 不做保证。">You acknowledge that: (a) AI Content should be reviewed critically before acting upon it; (b) AI models may produce different results for the same input; (c) the quality and accuracy of AI Content depend on third-party AI service providers and are not guaranteed by Vela.</p>
         </div>
 
         <div class="section">
-            <h2>5. HealthKit Data Usage</h2>
-            <p>Vela integrates with Apple HealthKit to access health and fitness data you choose to share, including but not limited to: workout records, heart rate, sleep analysis, step count, and active energy.</p>
-            <p>Your HealthKit data is: (a) used solely within the App to provide personalized fitness insights and AI coaching; (b) never sold to third parties; (c) never used for advertising purposes; (d) processed in accordance with Apple's HealthKit guidelines.</p>
-            <p>You may revoke HealthKit access at any time through your device's Settings &gt; Privacy &gt; Health. Revoking access may limit certain features of the App.</p>
+            <h2 data-en="5. HealthKit Data Usage" data-zh="5. HealthKit 数据使用">5. HealthKit Data Usage</h2>
+            <p data-en="Vela integrates with Apple HealthKit to access health and fitness data you choose to share, including but not limited to: workout records, heart rate, sleep analysis, step count, and active energy." data-zh="Vela 与 Apple HealthKit 集成，以访问您选择共享的健康和健身数据，包括但不限于：锻炼记录、心率、睡眠分析、步数和活动能量。">Vela integrates with Apple HealthKit to access health and fitness data you choose to share, including but not limited to: workout records, heart rate, sleep analysis, step count, and active energy.</p>
+            <p data-en="Your HealthKit data is: (a) used solely within the App to provide personalized fitness insights and AI coaching; (b) never sold to third parties; (c) never used for advertising purposes; (d) processed in accordance with Apple's HealthKit guidelines." data-zh="您的 HealthKit 数据：(a) 仅在应用内使用，以提供个性化的健身洞察和 AI 指导；(b) 绝不会出售给第三方；(c) 绝不会用于广告目的；(d) 按照 Apple 的 HealthKit 指南处理。">Your HealthKit data is: (a) used solely within the App to provide personalized fitness insights and AI coaching; (b) never sold to third parties; (c) never used for advertising purposes; (d) processed in accordance with Apple's HealthKit guidelines.</p>
+            <p data-en="You may revoke HealthKit access at any time through your device's Settings &gt; Privacy &gt; Health. Revoking access may limit certain features of the App." data-zh="您可以随时通过设备的设置 &gt; 隐私 &gt; 健康撤销 HealthKit 访问权限。撤销访问权限可能会限制应用的某些功能。">You may revoke HealthKit access at any time through your device's Settings &gt; Privacy &gt; Health. Revoking access may limit certain features of the App.</p>
         </div>
 
         <div class="section">
-            <h2>6. Cloud Backup</h2>
-            <p>Vela offers optional cloud backup to keep your data safe and synchronized. When enabled via Sign in with Apple, your fitness plans, preferences, and app data are securely stored on our cloud servers.</p>
-            <p>Cloud backup data is encrypted in transit and protected by row-level security policies. You may disconnect from cloud backup at any time in the App's settings. Your local data will not be affected by disconnecting.</p>
+            <h2 data-en="6. Cloud Backup" data-zh="6. 云备份">6. Cloud Backup</h2>
+            <p data-en="Vela offers optional cloud backup to keep your data safe and synchronized. When enabled via Sign in with Apple, your fitness plans, preferences, and app data are securely stored on our cloud servers." data-zh="Vela 提供可选的云备份，以保证您的数据安全和同步。通过 Apple 登录启用后，您的健身计划、偏好和应用数据将安全地存储在我们的云服务器上。">Vela offers optional cloud backup to keep your data safe and synchronized. When enabled via Sign in with Apple, your fitness plans, preferences, and app data are securely stored on our cloud servers.</p>
+            <p data-en="Cloud backup data is encrypted in transit and protected by row-level security policies. You may disconnect from cloud backup at any time in the App's settings. Your local data will not be affected by disconnecting." data-zh="云备份数据在传输过程中加密，并受行级安全策略保护。您可以随时在应用设置中断开云备份。断开连接不会影响您的本地数据。">Cloud backup data is encrypted in transit and protected by row-level security policies. You may disconnect from cloud backup at any time in the App's settings. Your local data will not be affected by disconnecting.</p>
         </div>
 
         <div class="section">
-            <h2>7. Third-Party Services</h2>
-            <p>Vela integrates with third-party services to provide its features, including:</p>
+            <h2 data-en="7. Third-Party Services" data-zh="7. 第三方服务">7. Third-Party Services</h2>
+            <p data-en="Vela integrates with third-party services to provide its features, including:" data-zh="Vela 与第三方服务集成以提供其功能，包括：">Vela integrates with third-party services to provide its features, including:</p>
             <ul>
-                <li><strong>DeepSeek API</strong>: Used for AI-powered coaching and plan generation. Your fitness profile data may be sent to DeepSeek servers to generate personalized content. DeepSeek's data processing is governed by its own privacy policy and terms of service.</li>
-                <li><strong>Apple HealthKit and Apple Intelligence</strong>: Governed by Apple's terms and privacy policies.</li>
+                <li data-en="&lt;strong&gt;DeepSeek API&lt;/strong&gt;: Used for AI-powered coaching and plan generation. Your fitness profile data may be sent to DeepSeek servers to generate personalized content. DeepSeek's data processing is governed by its own privacy policy and terms of service." data-zh="&lt;strong&gt;DeepSeek API&lt;/strong&gt;：用于 AI 驱动的指导和计划生成。您的健身档案数据可能会发送到 DeepSeek 服务器以生成个性化内容。DeepSeek 的数据处理受其自身的隐私政策和服务条款管辖。"><strong>DeepSeek API</strong>: Used for AI-powered coaching and plan generation. Your fitness profile data may be sent to DeepSeek servers to generate personalized content. DeepSeek's data processing is governed by its own privacy policy and terms of service.</li>
+                <li data-en="&lt;strong&gt;Apple HealthKit and Apple Intelligence&lt;/strong&gt;: Governed by Apple's terms and privacy policies." data-zh="&lt;strong&gt;Apple HealthKit 和 Apple Intelligence&lt;/strong&gt;：受 Apple 的条款和隐私政策管辖。"><strong>Apple HealthKit and Apple Intelligence</strong>: Governed by Apple's terms and privacy policies.</li>
             </ul>
-            <p>Vela is not responsible for the practices, content, or availability of third-party services. Changes to third-party service terms or availability may affect App functionality.</p>
+            <p data-en="Vela is not responsible for the practices, content, or availability of third-party services. Changes to third-party service terms or availability may affect App functionality." data-zh="Vela 不对第三方服务的做法、内容或可用性负责。第三方服务条款或可用性的变更可能会影响应用功能。">Vela is not responsible for the practices, content, or availability of third-party services. Changes to third-party service terms or availability may affect App functionality.</p>
         </div>
 
         <div class="section">
-            <h2>8. Intellectual Property</h2>
-            <p>All intellectual property rights in the App, including but not limited to its design, code, graphics, logos, and content (excluding user-generated content and AI-generated content), are owned by the Vela development team.</p>
-            <p>You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes. You may not copy, modify, distribute, reverse engineer, or create derivative works based on the App.</p>
+            <h2 data-en="8. Intellectual Property" data-zh="8. 知识产权">8. Intellectual Property</h2>
+            <p data-en="All intellectual property rights in the App, including but not limited to its design, code, graphics, logos, and content (excluding user-generated content and AI-generated content), are owned by the Vela development team." data-zh="本应用中的所有知识产权，包括但不限于其设计、代码、图形、标志和内容（不包括用户生成内容和 AI 生成内容），归 Vela 开发团队所有。">All intellectual property rights in the App, including but not limited to its design, code, graphics, logos, and content (excluding user-generated content and AI-generated content), are owned by the Vela development team.</p>
+            <p data-en="You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes. You may not copy, modify, distribute, reverse engineer, or create derivative works based on the App." data-zh="您被授予有限的、非排他的、不可转让的、可撤销的许可，可将本应用用于个人、非商业目的。您不得复制、修改、分发、逆向工程或基于本应用创建衍生作品。">You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes. You may not copy, modify, distribute, reverse engineer, or create derivative works based on the App.</p>
         </div>
 
         <div class="section">
-            <h2>9. Limitation of Liability</h2>
+            <h2 data-en="9. Limitation of Liability" data-zh="9. 责任限制">9. Limitation of Liability</h2>
             <div class="important">
-                <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, VELA AND ITS DEVELOPERS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO: PERSONAL INJURY, HEALTH COMPLICATIONS, LOSS OF DATA, LOSS OF PROFITS, OR BUSINESS INTERRUPTION.</p>
+                <p data-en="TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, VELA AND ITS DEVELOPERS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO: PERSONAL INJURY, HEALTH COMPLICATIONS, LOSS OF DATA, LOSS OF PROFITS, OR BUSINESS INTERRUPTION." data-zh="在适用法律允许的最大范围内，VELA 及其开发者不对任何间接、附带、特殊、后果性或惩罚性损害承担责任，包括但不限于：人身伤害、健康并发症、数据丢失、利润损失或业务中断。">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, VELA AND ITS DEVELOPERS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO: PERSONAL INJURY, HEALTH COMPLICATIONS, LOSS OF DATA, LOSS OF PROFITS, OR BUSINESS INTERRUPTION.</p>
             </div>
-            <p>The App is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, either express or implied. We do not guarantee that the App will be error-free, uninterrupted, or free of harmful components.</p>
-            <p>In no event shall Vela's total liability exceed the amount you paid for the App in the twelve (12) months preceding the claim.</p>
+            <p data-en="The App is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis without warranties of any kind, either express or implied. We do not guarantee that the App will be error-free, uninterrupted, or free of harmful components." data-zh="本应用以"按原样"和"按可用性"提供，不提供任何明示或暗示的保证。我们不保证应用没有错误、不会中断或不含有害组件。">The App is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, either express or implied. We do not guarantee that the App will be error-free, uninterrupted, or free of harmful components.</p>
+            <p data-en="In no event shall Vela's total liability exceed the amount you paid for the App in the twelve (12) months preceding the claim." data-zh="在任何情况下，Vela 的总责任不超过您在索赔前十二 (12) 个月内为应用支付的金额。">In no event shall Vela's total liability exceed the amount you paid for the App in the twelve (12) months preceding the claim.</p>
         </div>
 
         <div class="section">
-            <h2>10. Subscriptions and In-App Purchases</h2>
-            <p>Vela offers the following auto-renewable subscription plans:</p>
+            <h2 data-en="10. Subscriptions and In-App Purchases" data-zh="10. 订阅和应用内购买">10. Subscriptions and In-App Purchases</h2>
+            <p data-en="Vela offers the following auto-renewable subscription plans:" data-zh="Vela 提供以下自动续订的订阅计划：">Vela offers the following auto-renewable subscription plans:</p>
             <ul>
-                <li><strong>Pro Monthly</strong>: Monthly subscription with access to all Pro features.</li>
-                <li><strong>Pro Yearly</strong>: Annual subscription with access to all Pro features, includes a 7-day free trial.</li>
-                <li><strong>Elite Monthly</strong>: Monthly subscription with access to all Pro and Elite features.</li>
-                <li><strong>Elite Yearly</strong>: Annual subscription with access to all Pro and Elite features, includes a 7-day free trial.</li>
+                <li data-en="&lt;strong&gt;Pro Monthly&lt;/strong&gt;: Monthly subscription with access to all Pro features." data-zh="&lt;strong&gt;Pro 月度&lt;/strong&gt;：按月订阅，可使用所有 Pro 功能。"><strong>Pro Monthly</strong>: Monthly subscription with access to all Pro features.</li>
+                <li data-en="&lt;strong&gt;Pro Yearly&lt;/strong&gt;: Annual subscription with access to all Pro features, includes a 7-day free trial." data-zh="&lt;strong&gt;Pro 年度&lt;/strong&gt;：按年订阅，可使用所有 Pro 功能，包含 7 天免费试用。"><strong>Pro Yearly</strong>: Annual subscription with access to all Pro features, includes a 7-day free trial.</li>
+                <li data-en="&lt;strong&gt;Elite Monthly&lt;/strong&gt;: Monthly subscription with access to all Pro and Elite features." data-zh="&lt;strong&gt;Elite 月度&lt;/strong&gt;：按月订阅，可使用所有 Pro 和 Elite 功能。"><strong>Elite Monthly</strong>: Monthly subscription with access to all Pro and Elite features.</li>
+                <li data-en="&lt;strong&gt;Elite Yearly&lt;/strong&gt;: Annual subscription with access to all Pro and Elite features, includes a 7-day free trial." data-zh="&lt;strong&gt;Elite 年度&lt;/strong&gt;：按年订阅，可使用所有 Pro 和 Elite 功能，包含 7 天免费试用。"><strong>Elite Yearly</strong>: Annual subscription with access to all Pro and Elite features, includes a 7-day free trial.</li>
             </ul>
-            <p>Payment will be charged to your Apple ID account at the confirmation of purchase. Subscriptions automatically renew unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your account settings on the App Store after purchase.</p>
-            <p>Any unused portion of a free trial period will be forfeited when you purchase a subscription.</p>
+            <p data-en="Payment will be charged to your Apple ID account at the confirmation of purchase. Subscriptions automatically renew unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your account settings on the App Store after purchase." data-zh="付款将在确认购买时从您的 Apple ID 账户中扣除。除非在当前期限结束前至少 24 小时关闭自动续订，否则订阅将自动续订。您的账户将在当前期限结束前 24 小时内收取续订费用。您可以在购买后前往 App Store 的账户设置管理和取消订阅。">Payment will be charged to your Apple ID account at the confirmation of purchase. Subscriptions automatically renew unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your account settings on the App Store after purchase.</p>
+            <p data-en="Any unused portion of a free trial period will be forfeited when you purchase a subscription." data-zh="购买订阅时，任何未使用的免费试用期部分将被取消。">Any unused portion of a free trial period will be forfeited when you purchase a subscription.</p>
         </div>
 
         <div class="section">
-            <h2>11. Changes to Terms</h2>
-            <p>We reserve the right to modify these Terms of Use at any time. Changes will be effective when the updated terms are posted within the App. Your continued use of the App after any changes constitutes your acceptance of the revised terms.</p>
-            <p>We encourage you to review these terms periodically for any updates.</p>
+            <h2 data-en="11. Changes to Terms" data-zh="11. 条款变更">11. Changes to Terms</h2>
+            <p data-en="We reserve the right to modify these Terms of Use at any time. Changes will be effective when the updated terms are posted within the App. Your continued use of the App after any changes constitutes your acceptance of the revised terms." data-zh="我们保留随时修改这些使用条款的权利。更新后的条款在应用内发布后即生效。任何变更后您继续使用本应用即表示您接受修订后的条款。">We reserve the right to modify these Terms of Use at any time. Changes will be effective when the updated terms are posted within the App. Your continued use of the App after any changes constitutes your acceptance of the revised terms.</p>
+            <p data-en="We encourage you to review these terms periodically for any updates." data-zh="我们建议您定期查看这些条款以了解任何更新。">We encourage you to review these terms periodically for any updates.</p>
         </div>
 
         <div class="section">
-            <h2>12. Governing Law</h2>
-            <p>These Terms of Use shall be governed by and construed in accordance with the laws of the People's Republic of China, without regard to its conflict of law provisions. Any disputes arising from or related to these terms shall be subject to the exclusive jurisdiction of the courts in the defendant's place of domicile.</p>
+            <h2 data-en="12. Governing Law" data-zh="12. 适用法律">12. Governing Law</h2>
+            <p data-en="These Terms of Use shall be governed by and construed in accordance with the laws of the People's Republic of China, without regard to its conflict of law provisions. Any disputes arising from or related to these terms shall be subject to the exclusive jurisdiction of the courts in the defendant's place of domicile." data-zh="本使用条款受中华人民共和国法律管辖并据其解释，不考虑其法律冲突条款。因这些条款引起或与之相关的任何争议应受被告住所地法院的专属管辖。">These Terms of Use shall be governed by and construed in accordance with the laws of the People's Republic of China, without regard to its conflict of law provisions. Any disputes arising from or related to these terms shall be subject to the exclusive jurisdiction of the courts in the defendant's place of domicile.</p>
         </div>
 
         <div class="section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions about these Terms of Use, please contact us at <a href="mailto:zhipengye927@gmail.com" style="color:var(--accent)">zhipengye927@gmail.com</a> or through the in-app feedback feature.</p>
+            <h2 data-en="Contact Us" data-zh="联系我们">Contact Us</h2>
+            <p data-en="If you have any questions about these Terms of Use, please contact us at &lt;a href='mailto:zhipengye927@gmail.com' style='color:var(--accent)'&gt;zhipengye927@gmail.com&lt;/a&gt; or through the in-app feedback feature." data-zh="如果您对这些使用条款有任何疑问，请通过 &lt;a href='mailto:zhipengye927@gmail.com' style='color:var(--accent)'&gt;zhipengye927@gmail.com&lt;/a&gt; 或应用内反馈功能联系我们。">If you have any questions about these Terms of Use, please contact us at <a href="mailto:zhipengye927@gmail.com" style="color:var(--accent)">zhipengye927@gmail.com</a> or through the in-app feedback feature.</p>
         </div>
 
-        <div class="footer">
+        <div class="footer" data-en="&lt;a href='privacy.html'&gt;Privacy Policy&lt;/a&gt; &amp;middot; &lt;a href='index.html'&gt;Back to Vela&lt;/a&gt;" data-zh="&lt;a href='privacy.html'&gt;隐私政策&lt;/a&gt; &amp;middot; &lt;a href='index.html'&gt;返回 Vela&lt;/a&gt;">
             <a href="privacy.html">Privacy Policy</a> &middot; <a href="index.html">Back to Vela</a>
         </div>
     </div>
+<script>
+    let currentLang = localStorage.getItem('vela-lang') || 'en';
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('vela-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中文'));
+        });
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (text) el.innerHTML = text;
+        });
+        document.title = lang === 'en' ? 'Vela - Terms of Use' : 'Vela - 使用条款';
+    }
+    if (currentLang !== 'en') setLang(currentLang);
+</script>
 </body>
 </html>

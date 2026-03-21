@@ -110,111 +110,135 @@
             text-decoration: none;
         }
         .footer a:hover { text-decoration: underline; }
+        .lang-toggle { display:flex; align-items:center; gap:0; background:rgba(255,255,255,0.06); border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); margin-left: auto; }
+        .lang-btn { padding:6px 14px; font-size:13px; font-weight:600; background:none; border:none; color:var(--text2); cursor:pointer; transition:all 0.3s; font-family:inherit; }
+        .lang-btn.active { background:var(--accent); color:#fff; }
+        .lang-btn:hover:not(.active) { color:var(--text); }
     </style>
 </head>
 <body>
     <div class="topbar">
         <a href="index.html">Vela</a>
         <span class="sep">/</span>
-        <span class="current">Privacy Policy</span>
+        <span class="current" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</span>
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('zh')">中文</button>
+        </div>
     </div>
 
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: March 2026</p>
+        <h1 data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</h1>
+        <p class="updated" data-en="Last updated: March 2026" data-zh="最后更新：2026 年 3 月">Last updated: March 2026</p>
 
         <div class="section">
-            <h2>1. Information We Collect</h2>
-            <p>Vela collects the following information:</p>
+            <h2 data-en="1. Information We Collect" data-zh="1. 我们收集的信息">1. Information We Collect</h2>
+            <p data-en="Vela collects the following information:" data-zh="Vela 收集以下信息：">Vela collects the following information:</p>
             <ul>
-                <li><strong>Account information</strong>: When you sign in with Apple, we receive your Apple ID, name (optional), and email (optional). This information is stored securely on your device using the iOS Keychain.</li>
-                <li><strong>Profile information</strong>: Fitness profile data you provide during onboarding, including age, body metrics, fitness level, dietary preferences, and training schedule.</li>
-                <li><strong>Health data</strong>: With your permission, Vela reads health and fitness data from Apple HealthKit (see Section 2 for details).</li>
-                <li><strong>Usage data</strong>: Anonymous crash reports and diagnostics to improve app stability.</li>
+                <li data-en="&lt;strong&gt;Account information&lt;/strong&gt;: When you sign in with Apple, we receive your Apple ID, name (optional), and email (optional). This information is stored securely on your device using the iOS Keychain." data-zh="&lt;strong&gt;账户信息&lt;/strong&gt;：当您使用 Apple 登录时，我们会收到您的 Apple ID、姓名（可选）和电子邮件（可选）。这些信息使用 iOS 钥匙串安全地存储在您的设备上。"><strong>Account information</strong>: When you sign in with Apple, we receive your Apple ID, name (optional), and email (optional). This information is stored securely on your device using the iOS Keychain.</li>
+                <li data-en="&lt;strong&gt;Profile information&lt;/strong&gt;: Fitness profile data you provide during onboarding, including age, body metrics, fitness level, dietary preferences, and training schedule." data-zh="&lt;strong&gt;个人资料&lt;/strong&gt;：您在注册过程中提供的健身档案数据，包括年龄、身体指标、健身水平、饮食偏好和训练计划。"><strong>Profile information</strong>: Fitness profile data you provide during onboarding, including age, body metrics, fitness level, dietary preferences, and training schedule.</li>
+                <li data-en="&lt;strong&gt;Health data&lt;/strong&gt;: With your permission, Vela reads health and fitness data from Apple HealthKit (see Section 2 for details)." data-zh="&lt;strong&gt;健康数据&lt;/strong&gt;：在您的许可下，Vela 从 Apple HealthKit 读取健康和健身数据（详见第 2 节）。"><strong>Health data</strong>: With your permission, Vela reads health and fitness data from Apple HealthKit (see Section 2 for details).</li>
+                <li data-en="&lt;strong&gt;Usage data&lt;/strong&gt;: Anonymous crash reports and diagnostics to improve app stability." data-zh="&lt;strong&gt;使用数据&lt;/strong&gt;：匿名崩溃报告和诊断信息，用于提高应用稳定性。"><strong>Usage data</strong>: Anonymous crash reports and diagnostics to improve app stability.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>2. HealthKit Data</h2>
-            <p>With your explicit permission, Vela reads the following data from Apple HealthKit:</p>
+            <h2 data-en="2. HealthKit Data" data-zh="2. HealthKit 数据">2. HealthKit Data</h2>
+            <p data-en="With your explicit permission, Vela reads the following data from Apple HealthKit:" data-zh="在您的明确许可下，Vela 从 Apple HealthKit 读取以下数据：">With your explicit permission, Vela reads the following data from Apple HealthKit:</p>
             <ul>
-                <li>Heart rate variability (HRV), heart rate, and resting heart rate</li>
-                <li>Sleep analysis</li>
-                <li>Blood oxygen saturation</li>
-                <li>Respiratory rate and wrist temperature</li>
-                <li>Active energy burned and step count</li>
-                <li>Workout records</li>
-                <li>Body composition (weight, height, BMI, body fat percentage)</li>
+                <li data-en="Heart rate variability (HRV), heart rate, and resting heart rate" data-zh="心率变异性 (HRV)、心率和静息心率">Heart rate variability (HRV), heart rate, and resting heart rate</li>
+                <li data-en="Sleep analysis" data-zh="睡眠分析">Sleep analysis</li>
+                <li data-en="Blood oxygen saturation" data-zh="血氧饱和度">Blood oxygen saturation</li>
+                <li data-en="Respiratory rate and wrist temperature" data-zh="呼吸频率和腕部温度">Respiratory rate and wrist temperature</li>
+                <li data-en="Active energy burned and step count" data-zh="活动能量消耗和步数">Active energy burned and step count</li>
+                <li data-en="Workout records" data-zh="锻炼记录">Workout records</li>
+                <li data-en="Body composition (weight, height, BMI, body fat percentage)" data-zh="身体成分（体重、身高、BMI、体脂率）">Body composition (weight, height, BMI, body fat percentage)</li>
             </ul>
-            <p>Your HealthKit data is never sold, shared with third parties, or used for advertising. It is processed solely on your device and within the app to provide personalized fitness insights. You can revoke HealthKit access at any time via Settings &gt; Privacy &amp; Security &gt; Health.</p>
+            <p data-en="Your HealthKit data is never sold, shared with third parties, or used for advertising. It is processed solely on your device and within the app to provide personalized fitness insights. You can revoke HealthKit access at any time via Settings &gt; Privacy &amp; Security &gt; Health." data-zh="您的 HealthKit 数据绝不会被出售、与第三方共享或用于广告。它仅在您的设备上和应用内处理，以提供个性化的健身洞察。您可以随时通过设置 &gt; 隐私与安全 &gt; 健康撤销 HealthKit 访问权限。">Your HealthKit data is never sold, shared with third parties, or used for advertising. It is processed solely on your device and within the app to provide personalized fitness insights. You can revoke HealthKit access at any time via Settings &gt; Privacy &amp; Security &gt; Health.</p>
         </div>
 
         <div class="section">
-            <h2>3. How We Use Your Data</h2>
-            <p>We use your data to:</p>
+            <h2 data-en="3. How We Use Your Data" data-zh="3. 我们如何使用您的数据">3. How We Use Your Data</h2>
+            <p data-en="We use your data to:" data-zh="我们使用您的数据来：">We use your data to:</p>
             <ul>
-                <li>Provide personalized fitness plans, recovery scores, and coaching</li>
-                <li>Generate AI-powered recommendations using your fitness profile</li>
-                <li>Synchronize your data across devices (when cloud backup is enabled)</li>
-                <li>Improve app stability and performance through anonymized diagnostics</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>4. Data Storage and Security</h2>
-            <ul>
-                <li><strong>Local storage</strong>: Your data is primarily stored on your device using encrypted local databases. Account credentials are stored in the iOS Keychain.</li>
-                <li><strong>Cloud backup (optional)</strong>: When enabled via Sign in with Apple, your data is encrypted in transit (TLS) and stored on secure cloud servers with row-level security policies. Only you can access your data.</li>
-                <li>We do not store HealthKit data on our servers. HealthKit data is processed locally on your device.</li>
+                <li data-en="Provide personalized fitness plans, recovery scores, and coaching" data-zh="提供个性化的健身计划、恢复评分和指导">Provide personalized fitness plans, recovery scores, and coaching</li>
+                <li data-en="Generate AI-powered recommendations using your fitness profile" data-zh="使用您的健身档案生成 AI 驱动的建议">Generate AI-powered recommendations using your fitness profile</li>
+                <li data-en="Synchronize your data across devices (when cloud backup is enabled)" data-zh="跨设备同步您的数据（启用云备份时）">Synchronize your data across devices (when cloud backup is enabled)</li>
+                <li data-en="Improve app stability and performance through anonymized diagnostics" data-zh="通过匿名诊断改善应用稳定性和性能">Improve app stability and performance through anonymized diagnostics</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>5. Third-Party Services</h2>
-            <p>Vela uses the following third-party services:</p>
+            <h2 data-en="4. Data Storage and Security" data-zh="4. 数据存储与安全">4. Data Storage and Security</h2>
             <ul>
-                <li><strong>DeepSeek API</strong>: Your fitness profile (not HealthKit data) may be sent to DeepSeek servers to generate AI coaching content. DeepSeek processes data according to its own privacy policy.</li>
-                <li><strong>Apple HealthKit</strong>: Governed by Apple's privacy policy. Vela complies fully with Apple's HealthKit guidelines.</li>
-                <li><strong>Apple Intelligence</strong>: Used for on-device AI processing where available.</li>
-                <li><strong>Sentry</strong>: Used for anonymous crash reporting and error tracking to improve app stability.</li>
+                <li data-en="&lt;strong&gt;Local storage&lt;/strong&gt;: Your data is primarily stored on your device using encrypted local databases. Account credentials are stored in the iOS Keychain." data-zh="&lt;strong&gt;本地存储&lt;/strong&gt;：您的数据主要使用加密的本地数据库存储在您的设备上。账户凭证存储在 iOS 钥匙串中。"><strong>Local storage</strong>: Your data is primarily stored on your device using encrypted local databases. Account credentials are stored in the iOS Keychain.</li>
+                <li data-en="&lt;strong&gt;Cloud backup (optional)&lt;/strong&gt;: When enabled via Sign in with Apple, your data is encrypted in transit (TLS) and stored on secure cloud servers with row-level security policies. Only you can access your data." data-zh="&lt;strong&gt;云备份（可选）&lt;/strong&gt;：通过 Apple 登录启用后，您的数据在传输过程中加密 (TLS)，并存储在具有行级安全策略的安全云服务器上。只有您能访问您的数据。"><strong>Cloud backup (optional)</strong>: When enabled via Sign in with Apple, your data is encrypted in transit (TLS) and stored on secure cloud servers with row-level security policies. Only you can access your data.</li>
+                <li data-en="We do not store HealthKit data on our servers. HealthKit data is processed locally on your device." data-zh="我们不会在服务器上存储 HealthKit 数据。HealthKit 数据在您的设备上本地处理。">We do not store HealthKit data on our servers. HealthKit data is processed locally on your device.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>6. Data Sharing</h2>
-            <p>We do not sell your personal data. We do not share your data with third parties for marketing or advertising purposes. Data is only shared with third-party service providers as described in Section 5, solely to provide the app's features.</p>
-        </div>
-
-        <div class="section">
-            <h2>7. Your Rights</h2>
-            <p>You have the right to:</p>
+            <h2 data-en="5. Third-Party Services" data-zh="5. 第三方服务">5. Third-Party Services</h2>
+            <p data-en="Vela uses the following third-party services:" data-zh="Vela 使用以下第三方服务：">Vela uses the following third-party services:</p>
             <ul>
-                <li><strong>Access your data</strong>: All your data is visible within the app.</li>
-                <li><strong>Delete your account</strong>: You can delete your account and all associated data from Settings &gt; Account &gt; Delete Account.</li>
-                <li><strong>Revoke HealthKit access</strong>: Via your device's Settings &gt; Privacy &amp; Security &gt; Health.</li>
-                <li><strong>Disconnect cloud backup</strong>: Via the app's Cloud Backup settings.</li>
-                <li><strong>Export your data</strong>: Your fitness plans and profile data can be backed up via the cloud backup feature.</li>
+                <li data-en="&lt;strong&gt;DeepSeek API&lt;/strong&gt;: Your fitness profile (not HealthKit data) may be sent to DeepSeek servers to generate AI coaching content. DeepSeek processes data according to its own privacy policy." data-zh="&lt;strong&gt;DeepSeek API&lt;/strong&gt;：您的健身档案（非 HealthKit 数据）可能会发送到 DeepSeek 服务器以生成 AI 指导内容。DeepSeek 根据其自身的隐私政策处理数据。"><strong>DeepSeek API</strong>: Your fitness profile (not HealthKit data) may be sent to DeepSeek servers to generate AI coaching content. DeepSeek processes data according to its own privacy policy.</li>
+                <li data-en="&lt;strong&gt;Apple HealthKit&lt;/strong&gt;: Governed by Apple's privacy policy. Vela complies fully with Apple's HealthKit guidelines." data-zh="&lt;strong&gt;Apple HealthKit&lt;/strong&gt;：受 Apple 隐私政策管辖。Vela 完全遵守 Apple 的 HealthKit 指南。"><strong>Apple HealthKit</strong>: Governed by Apple's privacy policy. Vela complies fully with Apple's HealthKit guidelines.</li>
+                <li data-en="&lt;strong&gt;Apple Intelligence&lt;/strong&gt;: Used for on-device AI processing where available." data-zh="&lt;strong&gt;Apple Intelligence&lt;/strong&gt;：在可用时用于设备端 AI 处理。"><strong>Apple Intelligence</strong>: Used for on-device AI processing where available.</li>
+                <li data-en="&lt;strong&gt;Sentry&lt;/strong&gt;: Used for anonymous crash reporting and error tracking to improve app stability." data-zh="&lt;strong&gt;Sentry&lt;/strong&gt;：用于匿名崩溃报告和错误追踪，以提高应用稳定性。"><strong>Sentry</strong>: Used for anonymous crash reporting and error tracking to improve app stability.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>8. Children's Privacy</h2>
-            <p>Vela is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected data from a child under 13, we will take steps to delete such information promptly.</p>
+            <h2 data-en="6. Data Sharing" data-zh="6. 数据共享">6. Data Sharing</h2>
+            <p data-en="We do not sell your personal data. We do not share your data with third parties for marketing or advertising purposes. Data is only shared with third-party service providers as described in Section 5, solely to provide the app's features." data-zh="我们不出售您的个人数据。我们不会出于营销或广告目的与第三方共享您的数据。数据仅与第 5 节中描述的第三方服务提供商共享，仅用于提供应用功能。">We do not sell your personal data. We do not share your data with third parties for marketing or advertising purposes. Data is only shared with third-party service providers as described in Section 5, solely to provide the app's features.</p>
         </div>
 
         <div class="section">
-            <h2>9. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. Changes will be posted within the app. Your continued use of the app after changes are posted constitutes your acceptance of the updated policy.</p>
+            <h2 data-en="7. Your Rights" data-zh="7. 您的权利">7. Your Rights</h2>
+            <p data-en="You have the right to:" data-zh="您有权：">You have the right to:</p>
+            <ul>
+                <li data-en="&lt;strong&gt;Access your data&lt;/strong&gt;: All your data is visible within the app." data-zh="&lt;strong&gt;访问您的数据&lt;/strong&gt;：您的所有数据在应用内均可查看。"><strong>Access your data</strong>: All your data is visible within the app.</li>
+                <li data-en="&lt;strong&gt;Delete your account&lt;/strong&gt;: You can delete your account and all associated data from Settings &gt; Account &gt; Delete Account." data-zh="&lt;strong&gt;删除您的账户&lt;/strong&gt;：您可以通过设置 &gt; 账户 &gt; 删除账户来删除您的账户和所有相关数据。"><strong>Delete your account</strong>: You can delete your account and all associated data from Settings &gt; Account &gt; Delete Account.</li>
+                <li data-en="&lt;strong&gt;Revoke HealthKit access&lt;/strong&gt;: Via your device's Settings &gt; Privacy &amp; Security &gt; Health." data-zh="&lt;strong&gt;撤销 HealthKit 访问权限&lt;/strong&gt;：通过您设备的设置 &gt; 隐私与安全 &gt; 健康。"><strong>Revoke HealthKit access</strong>: Via your device's Settings &gt; Privacy &amp; Security &gt; Health.</li>
+                <li data-en="&lt;strong&gt;Disconnect cloud backup&lt;/strong&gt;: Via the app's Cloud Backup settings." data-zh="&lt;strong&gt;断开云备份&lt;/strong&gt;：通过应用的云备份设置。"><strong>Disconnect cloud backup</strong>: Via the app's Cloud Backup settings.</li>
+                <li data-en="&lt;strong&gt;Export your data&lt;/strong&gt;: Your fitness plans and profile data can be backed up via the cloud backup feature." data-zh="&lt;strong&gt;导出您的数据&lt;/strong&gt;：您的健身计划和个人资料数据可通过云备份功能进行备份。"><strong>Export your data</strong>: Your fitness plans and profile data can be backed up via the cloud backup feature.</li>
+            </ul>
         </div>
 
         <div class="section">
-            <h2>10. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:zhipengye927@gmail.com" style="color:var(--accent)">zhipengye927@gmail.com</a> or through the in-app feedback feature.</p>
+            <h2 data-en="8. Children's Privacy" data-zh="8. 儿童隐私">8. Children's Privacy</h2>
+            <p data-en="Vela is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected data from a child under 13, we will take steps to delete such information promptly." data-zh="Vela 不面向 13 岁以下的儿童。我们不会故意收集 13 岁以下儿童的个人信息。如果我们发现收集了 13 岁以下儿童的数据，我们将采取措施及时删除此类信息。">Vela is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected data from a child under 13, we will take steps to delete such information promptly.</p>
         </div>
 
-        <div class="footer">
+        <div class="section">
+            <h2 data-en="9. Changes to This Policy" data-zh="9. 政策变更">9. Changes to This Policy</h2>
+            <p data-en="We may update this Privacy Policy from time to time. Changes will be posted within the app. Your continued use of the app after changes are posted constitutes your acceptance of the updated policy." data-zh="我们可能会不时更新本隐私政策。变更将在应用内发布。变更发布后您继续使用应用即表示您接受更新后的政策。">We may update this Privacy Policy from time to time. Changes will be posted within the app. Your continued use of the app after changes are posted constitutes your acceptance of the updated policy.</p>
+        </div>
+
+        <div class="section">
+            <h2 data-en="10. Contact Us" data-zh="10. 联系我们">10. Contact Us</h2>
+            <p data-en="If you have any questions about this Privacy Policy, please contact us at &lt;a href='mailto:zhipengye927@gmail.com' style='color:var(--accent)'&gt;zhipengye927@gmail.com&lt;/a&gt; or through the in-app feedback feature." data-zh="如果您对本隐私政策有任何疑问，请通过 &lt;a href='mailto:zhipengye927@gmail.com' style='color:var(--accent)'&gt;zhipengye927@gmail.com&lt;/a&gt; 或应用内反馈功能联系我们。">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:zhipengye927@gmail.com" style="color:var(--accent)">zhipengye927@gmail.com</a> or through the in-app feedback feature.</p>
+        </div>
+
+        <div class="footer" data-en="&lt;a href='terms.html'&gt;Terms of Use&lt;/a&gt; &amp;middot; &lt;a href='index.html'&gt;Back to Vela&lt;/a&gt;" data-zh="&lt;a href='terms.html'&gt;使用条款&lt;/a&gt; &amp;middot; &lt;a href='index.html'&gt;返回 Vela&lt;/a&gt;">
             <a href="terms.html">Terms of Use</a> &middot; <a href="index.html">Back to Vela</a>
         </div>
     </div>
+<script>
+    let currentLang = localStorage.getItem('vela-lang') || 'en';
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('vela-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中文'));
+        });
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const text = el.getAttribute('data-' + lang);
+            if (text) el.innerHTML = text;
+        });
+        document.title = lang === 'en' ? 'Vela - Privacy Policy' : 'Vela - 隐私政策';
+    }
+    if (currentLang !== 'en') setLang(currentLang);
+</script>
 </body>
 </html>
